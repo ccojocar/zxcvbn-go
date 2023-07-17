@@ -1,0 +1,12 @@
+---
+project_name: zxcvbn-go
+
+gomod:
+  proxy: true
+
+release:
+  extra_files:
+    - glob: ./bom.json
+  github:
+    owner: ccojocar
+    name: zxcvbn-go

@@ -26,7 +26,9 @@ install-govulncheck:
 		go install golang.org/x/vuln/cmd/govulncheck@latest; \
 	fi
 
-test: fmt vet lint sec govulncheck
+test-all: fmt vet lint sec govulncheck test
+
+test:
 	go test -v ./...
 
 fmt:
@@ -56,4 +58,4 @@ clean:
 	rm -rf build vendor dist coverage.txt
 	rm -f release image $(BIN)
 
-.PHONY: test clean
+.PHONY: test test-all fmt vet govulncheck clean
