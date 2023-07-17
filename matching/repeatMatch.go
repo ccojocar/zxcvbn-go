@@ -17,7 +17,7 @@ func FilterRepeatMatcher(m match.Matcher) bool {
 func repeatMatch(password string) []match.Match {
 	var matches []match.Match
 
-	//Loop through password. if current == prev currentStreak++ else if currentStreak > 2 {buildMatch; currentStreak = 1} prev = current
+	// Loop through password. if current == prev currentStreak++ else if currentStreak > 2 {buildMatch; currentStreak = 1} prev = current
 	var current, prev string
 	currentStreak := 1
 	var i int
@@ -31,7 +31,6 @@ func repeatMatch(password string) []match.Match {
 
 		if strings.EqualFold(current, prev) {
 			currentStreak++
-
 		} else if currentStreak > 2 {
 			iPos := i - currentStreak
 			jPos := i - 1
@@ -40,7 +39,8 @@ func repeatMatch(password string) []match.Match {
 				I:              iPos,
 				J:              jPos,
 				Token:          password[iPos : jPos+1],
-				DictionaryName: prev}
+				DictionaryName: prev,
+			}
 			matchRepeat.Entropy = entropy.RepeatEntropy(matchRepeat)
 			matches = append(matches, matchRepeat)
 			currentStreak = 1
@@ -59,7 +59,8 @@ func repeatMatch(password string) []match.Match {
 			I:              iPos,
 			J:              jPos,
 			Token:          password[iPos : jPos+1],
-			DictionaryName: prev}
+			DictionaryName: prev,
+		}
 		matchRepeat.Entropy = entropy.RepeatEntropy(matchRepeat)
 		matches = append(matches, matchRepeat)
 	}

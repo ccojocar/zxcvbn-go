@@ -71,7 +71,6 @@ func BuildLeet() Graph {
 }
 
 func getAdjancencyGraphFromFile(data []byte, name string) Graph {
-
 	var graph Graph
 	err := json.Unmarshal(data, &graph)
 	if err != nil {
@@ -92,14 +91,12 @@ func (adjGrp Graph) CalculateAvgDegree() float64 {
 	var avg float64
 	var count float64
 	for _, value := range adjGrp.Graph {
-
 		for _, char := range value {
 			if len(char) != 0 || char != " " {
 				avg += float64(len(char))
 				count++
 			}
 		}
-
 	}
 
 	adjGrp.averageDegree = avg / count

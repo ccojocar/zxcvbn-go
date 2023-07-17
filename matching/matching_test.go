@@ -5,8 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ccojocar/zxcvbn-go/match"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/ccojocar/zxcvbn-go/match"
 )
 
 //DateSepMatch("1991-09-11jibjab11.9.1991")
@@ -37,10 +38,10 @@ import (
 //
 // }
 func TestRepeatMatch(t *testing.T) {
-	//aaaBbBb
+	// aaaBbBb
 	matches := repeatMatch("aaabBbB")
 
-	assert.Len(t, matches, 2, "Lenght should be 2")
+	assert.Len(t, matches, 2, "Length should be 2")
 
 	for _, match := range matches {
 		if strings.ToLower(match.DictionaryName) == "b" {
@@ -59,10 +60,10 @@ func TestRepeatMatch(t *testing.T) {
 }
 
 func TestSequenceMatch(t *testing.T) {
-	//abcdjibjacLMNOPjibjac1234  => abcd LMNOP 1234
+	// abcdjibjacLMNOPjibjac1234  => abcd LMNOP 1234
 
 	matches := sequenceMatch("abcdjibjacLMNOPjibjac1234")
-	assert.Len(t, matches, 3, "Lenght should be 3")
+	assert.Len(t, matches, 3, "Length should be 3")
 
 	for _, match := range matches {
 		if match.DictionaryName == "lower" {
@@ -81,27 +82,25 @@ func TestSequenceMatch(t *testing.T) {
 			assert.Equal(t, "1234", match.Token)
 			assert.NotZero(t, match.Entropy, "Entropy should be set")
 		} else {
-			assert.True(t, false, "Unknow dictionary")
+			assert.True(t, false, "Unknown dictionary")
 		}
 	}
 }
 
 func TestSpatialMatchQwerty(t *testing.T) {
 	matches := spatialMatch("qwerty")
-	assert.Len(t, matches, 1, "Lenght should be 1")
+	assert.Len(t, matches, 1, "Length should be 1")
 	assert.NotZero(t, matches[0].Entropy, "Entropy should be set")
 
 	matches = spatialMatch("asdf")
-	assert.Len(t, matches, 1, "Lenght should be 1")
+	assert.Len(t, matches, 1, "Length should be 1")
 	assert.NotZero(t, matches[0].Entropy, "Entropy should be set")
-
 }
 
 func TestSpatialMatchDvorak(t *testing.T) {
 	matches := spatialMatch("aoeuidhtns")
-	assert.Len(t, matches, 1, "Lenght should be 1")
+	assert.Len(t, matches, 1, "Length should be 1")
 	assert.NotZero(t, matches[0].Entropy, "Entropy should be set")
-
 }
 
 func TestDictionaryMatch(t *testing.T) {
@@ -111,22 +110,17 @@ func TestDictionaryMatch(t *testing.T) {
 		matches = append(matches, matchesTemp...)
 	}
 
-	assert.Len(t, matches, 4, "Lenght should be 4")
+	assert.Len(t, matches, 4, "Length should be 4")
 	for _, match := range matches {
 		assert.NotZero(t, match.Entropy, "Entropy should be set")
-
 	}
-
 }
 
 func TestDateWithoutSepMatch(t *testing.T) {
 	matches := dateWithoutSepMatch("11091991")
-	assert.Len(t, matches, 1, "Lenght should be 1")
+	assert.Len(t, matches, 1, "Length should be 1")
 
 	matches = dateWithoutSepMatch("20010911")
-	assert.Len(t, matches, 1, "Lenght should be 1")
+	assert.Len(t, matches, 1, "Length should be 1")
 	log.Println(matches)
-
-	//matches := dateWithoutSepMatch("110991")
-	//assert.Len(t, matches, 21, "Lenght should be blarg")
 }

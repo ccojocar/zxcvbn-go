@@ -11,34 +11,34 @@ import (
 
 func TestLeetCanCreateSubstitutionMapsFromTable(t *testing.T) {
 	table01 := map[string][]string{
-		"a": []string{"@"},
-		"b": []string{"8"},
-		"g": []string{"6"},
+		"a": {"@"},
+		"b": {"8"},
+		"g": {"6"},
 	}
 
 	table02 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
+		"a": {"@", "4"},
+		"b": {"8"},
 	}
 
 	table03 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
 	}
 
 	table04 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
 	}
 
 	table05 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"l": []string{"!", "1", "|", "7"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"l": {"!", "1", "|", "7"},
 	}
 
 	tests := []struct {
@@ -93,50 +93,50 @@ func TestSubstitutionWorksProperly(t *testing.T) {
 
 func TestLeetCanListConflictsOnTable(t *testing.T) {
 	mapWithoutConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"e": []string{"3"},
-		"g": []string{"6", "9"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"e": {"3"},
+		"g": {"6", "9"},
 	}
 
 	mapWithOneConflictInTwoKeys := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|"},
 	}
 
 	mapWithTwoConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
-		"l": []string{"1", "|", "7"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
+		"l": {"1", "|", "7"},
 	}
 
 	mapWithOneConflictInThreeKeys := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|", "7"},
-		"t": []string{"+", "1"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|", "7"},
+		"t": {"+", "1"},
 	}
 
 	regularMap := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"c": []string{"(", "{", "[", "<"},
-		"e": []string{"3"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
-		"l": []string{"1", "|", "7"},
-		"o": []string{"0"},
-		"s": []string{"$", "5"},
-		"t": []string{"+", "7"},
-		"x": []string{"%"},
-		"z": []string{"2"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"c": {"(", "{", "[", "<"},
+		"e": {"3"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
+		"l": {"1", "|", "7"},
+		"o": {"0"},
+		"s": {"$", "5"},
+		"t": {"+", "7"},
+		"x": {"%"},
+		"z": {"2"},
 	}
 
 	tests := []struct {
@@ -167,50 +167,50 @@ func TestLeetCanListConflictsOnTable(t *testing.T) {
 
 func TestLeetCanListKeysWithSpecificValueOnTable(t *testing.T) {
 	mapWithoutConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"e": []string{"3"},
-		"g": []string{"6", "9"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"e": {"3"},
+		"g": {"6", "9"},
 	}
 
 	mapWithOneConflictInTwoKeys := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|"},
 	}
 
 	mapWithTwoConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
-		"l": []string{"1", "|", "7"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
+		"l": {"1", "|", "7"},
 	}
 
 	mapWithOneConflictInThreeKeys := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|", "7"},
-		"t": []string{"+", "1"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|", "7"},
+		"t": {"+", "1"},
 	}
 
 	regularMap := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"c": []string{"(", "{", "[", "<"},
-		"e": []string{"3"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
-		"l": []string{"1", "|", "7"},
-		"o": []string{"0"},
-		"s": []string{"$", "5"},
-		"t": []string{"+", "7"},
-		"x": []string{"%"},
-		"z": []string{"2"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"c": {"(", "{", "[", "<"},
+		"e": {"3"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
+		"l": {"1", "|", "7"},
+		"o": {"0"},
+		"s": {"$", "5"},
+		"t": {"+", "7"},
+		"x": {"%"},
+		"z": {"2"},
 	}
 
 	tests := []struct {
@@ -251,27 +251,27 @@ func TestLeetCanListKeysWithSpecificValueOnTable(t *testing.T) {
 
 func TestLeetCanCreateDifferentTablesForConflictingChar(t *testing.T) {
 	mapWithoutConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"e": []string{"3"},
-		"g": []string{"6", "9"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"e": {"3"},
+		"g": {"6", "9"},
 	}
 
 	mapWithTwoConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
-		"l": []string{"1", "|", "7"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
+		"l": {"1", "|", "7"},
 	}
 
 	mapWithOneConflictInThreeKeys := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|", "7"},
-		"t": []string{"+", "1"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|", "7"},
+		"t": {"+", "1"},
 	}
 
 	tests := []struct {
@@ -298,36 +298,36 @@ func TestLeetCanCreateDifferentTablesForConflictingChar(t *testing.T) {
 
 func TestLeetCanCreateTablesWithoutConflict(t *testing.T) {
 	mapWithoutConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"e": []string{"3"},
-		"g": []string{"6", "9"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"e": {"3"},
+		"g": {"6", "9"},
 	}
 
 	mapWithTwoConflicts := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
-		"l": []string{"1", "|", "7"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
+		"l": {"1", "|", "7"},
 	}
 
 	mapWithOneConflictInThreeKeys := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|", "7"},
-		"t": []string{"+", "1"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|", "7"},
+		"t": {"+", "1"},
 	}
 
 	mapThatGeneratesTwelveOtherMaps := map[string][]string{
-		"a": []string{"@", "4", "9"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|", "7"},
-		"t": []string{"+", "1", "7"},
+		"a": {"@", "4", "9"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|", "7"},
+		"t": {"+", "1", "7"},
 	}
 
 	tests := []struct {
@@ -378,53 +378,53 @@ func TestStringSliceContainsValueFunction(t *testing.T) {
 
 func TestCopyMapRemovingSameValueFromOtherKeysFunction(t *testing.T) {
 	map01 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|"},
 	}
 
 	expectedMap01 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"|"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"|"},
 	}
 
 	map02 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!", "|"},
-		"l": []string{"1", "|", "7"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!", "|"},
+		"l": {"1", "|", "7"},
 	}
 
 	expectedMap02 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|", "7"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|", "7"},
 	}
 
 	map03 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"1", "!"},
-		"l": []string{"1", "|", "7"},
-		"t": []string{"+", "1"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"1", "!"},
+		"l": {"1", "|", "7"},
+		"t": {"+", "1"},
 	}
 
 	expectedMap03 := map[string][]string{
-		"a": []string{"@", "4"},
-		"b": []string{"8"},
-		"g": []string{"6", "9"},
-		"i": []string{"!"},
-		"l": []string{"1", "|", "7"},
-		"t": []string{"+"},
+		"a": {"@", "4"},
+		"b": {"8"},
+		"g": {"6", "9"},
+		"i": {"!"},
+		"l": {"1", "|", "7"},
+		"t": {"+"},
 	}
 
 	tests := []struct {
@@ -543,7 +543,7 @@ func checkPermutationsLen(t *testing.T, password string, permutationsLen int) {
 	assert.Len(t, permutations, permutationsLen)
 }
 
-func TestLeet(t *testing.T) {
+func TestLeet(_ *testing.T) {
 	password := "1337"
 	matches := l33tMatch(password)
 	bytes, _ := json.Marshal(matches)

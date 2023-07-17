@@ -1,8 +1,9 @@
 package zxcvbnmath
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNchoseK100and2(t *testing.T) {

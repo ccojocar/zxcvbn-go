@@ -6,9 +6,11 @@ type Matches []Match
 func (s Matches) Len() int {
 	return len(s)
 }
+
 func (s Matches) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
+
 func (s Matches) Less(i, j int) bool {
 	if s[i].I < s[j].I {
 		return true

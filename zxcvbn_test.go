@@ -14,7 +14,6 @@ const (
 )
 
 func TestPasswordStrength(t *testing.T) {
-
 	//	Expected calculated by running zxcvbn-python
 	runTest(t, "zxcvbn", float64(6.845490050944376))
 	runTest(t, "Tr0ub4dour&3", float64(17.296))

@@ -15,7 +15,6 @@ func buildDictMatcher(dictName string, rankedDict map[string]int) func(password 
 		}
 		return matches
 	}
-
 }
 
 func dictionaryMatch(password string, dictionaryName string, rankedDict map[string]int) []match.Match {
@@ -29,7 +28,8 @@ func dictionaryMatch(password string, dictionaryName string, rankedDict map[stri
 		for j := i; j < length; j++ {
 			word := pwLowerRunes[i : j+1]
 			if val, ok := rankedDict[string(word)]; ok {
-				matchDic := match.Match{Pattern: "dictionary",
+				matchDic := match.Match{
+					Pattern:        "dictionary",
 					DictionaryName: dictionaryName,
 					I:              i,
 					J:              j,
@@ -46,7 +46,6 @@ func dictionaryMatch(password string, dictionaryName string, rankedDict map[stri
 }
 
 func buildRankedDict(unrankedList []string) map[string]int {
-
 	result := make(map[string]int)
 
 	for i, v := range unrankedList {

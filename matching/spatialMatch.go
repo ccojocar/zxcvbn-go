@@ -25,10 +25,9 @@ func spatialMatch(password string) (matches []match.Match) {
 }
 
 func spatialMatchHelper(password string, graph adjacency.Graph) (matches []match.Match) {
-
 	for i := 0; i < len(password)-1; {
 		j := i + 1
-		lastDirection := -99 //an int that it should never be!
+		lastDirection := -99 // an int that it should never be!
 		turns := 0
 		shiftedCount := 0
 
@@ -37,9 +36,9 @@ func spatialMatchHelper(password string, graph adjacency.Graph) (matches []match
 			found := false
 			var foundDirection int
 			curDirection := -1
-			//My graphs seem to be wrong. . . and where the hell is qwerty
+			// My graphs seem to be wrong. . . and where the hell is qwerty
 			adjacents := graph.Graph[string(prevChar)]
-			//Consider growing pattern by one character if j hasn't gone over the edge
+			// Consider growing pattern by one character if j hasn't gone over the edge
 			if j < len(password) {
 				curChar := password[j]
 				for _, adj := range adjacents {
@@ -50,14 +49,14 @@ func spatialMatchHelper(password string, graph adjacency.Graph) (matches []match
 						foundDirection = curDirection
 
 						if strings.Index(adj, string(curChar)) == 1 {
-							//index 1 in the adjacency means the key is shifted, 0 means unshifted: A vs a, % vs 5, etc.
-							//for example, 'q' is adjacent to the entry '2@'. @ is shifted w/ index 1, 2 is unshifted.
+							// index 1 in the adjacency means the key is shifted, 0 means unshifted: A vs a, % vs 5, etc.
+							// for example, 'q' is adjacent to the entry '2@'. @ is shifted w/ index 1, 2 is unshifted.
 							shiftedCount++
 						}
 
 						if lastDirection != foundDirection {
-							//adding a turn is correct even in the initial case when last_direction is null:
-							//every spatial pattern starts with a turn.
+							// adding a turn is correct even in the initial case when last_direction is null:
+							// every spatial pattern starts with a turn.
 							turns++
 							lastDirection = foundDirection
 						}
@@ -66,12 +65,12 @@ func spatialMatchHelper(password string, graph adjacency.Graph) (matches []match
 				}
 			}
 
-			//if the current pattern continued, extend j and try to grow again
+			// if the current pattern continued, extend j and try to grow again
 			if found {
 				j++
 			} else {
-				//otherwise push the pattern discovered so far, if any...
-				//don't consider length 1 or 2 chains.
+				// otherwise push the pattern discovered so far, if any...
+				// don't consider length 1 or 2 chains.
 				if j-i > 2 {
 					matchSpc := match.Match{Pattern: "spatial", I: i, J: j - 1, Token: password[i:j], DictionaryName: graph.Name}
 					matchSpc.Entropy = entropy.SpatialEntropy(matchSpc, turns, shiftedCount)

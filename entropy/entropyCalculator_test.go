@@ -1,9 +1,11 @@
 package entropy
 
 import (
-	"github.com/ccojocar/zxcvbn-go/match"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+
+	"github.com/ccojocar/zxcvbn-go/match"
 )
 
 func TestDictionaryEntropyCalculation(t *testing.T) {

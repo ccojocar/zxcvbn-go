@@ -13,7 +13,7 @@ func main() {
 		fmt.Println("Enter password or Ctrl-c to exit:")
 		reader := bufio.NewReader(os.Stdin)
 		password, _ := reader.ReadString('\n')
-		//password := "Testaaatyhg890l33t"
+		// password := "Testaaatyhg890l33t"
 
 		passwordStenght := zxcvbn.PasswordStrength(password, nil)
 

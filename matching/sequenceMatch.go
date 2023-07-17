@@ -64,10 +64,8 @@ func sequenceMatch(password string) []match.Match {
 						matches = append(matches, matchSequence)
 					}
 					break
-				} else {
-					j++
 				}
-
+				j++
 			}
 		}
 		i = j
