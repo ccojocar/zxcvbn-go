@@ -1,6 +1,6 @@
 package match
 
-//Matches is an alies for []Match used for sorting
+// Matches is an alies for []Match used for sorting
 type Matches []Match
 
 func (s Matches) Len() int {
@@ -28,7 +28,7 @@ type Match struct {
 	Entropy        float64
 }
 
-//DateMatch is specifilly a match for type date
+// DateMatch is specifilly a match for type date
 type DateMatch struct {
 	Pattern          string
 	I, J             int
@@ -37,7 +37,7 @@ type DateMatch struct {
 	Day, Month, Year int64
 }
 
-//Matcher are a func and ID that can be used to match different passwords
+// Matcher are a func and ID that can be used to match different passwords
 type Matcher struct {
 	MatchingFunc func(password string) []Match
 	ID           string

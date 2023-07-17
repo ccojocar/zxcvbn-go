@@ -3,14 +3,14 @@ package matching
 import (
 	"strings"
 
-	"github.com/nbutton23/zxcvbn-go/adjacency"
-	"github.com/nbutton23/zxcvbn-go/entropy"
-	"github.com/nbutton23/zxcvbn-go/match"
+	"github.com/ccojocar/zxcvbn-go/adjacency"
+	"github.com/ccojocar/zxcvbn-go/entropy"
+	"github.com/ccojocar/zxcvbn-go/match"
 )
 
 const spatialMatcherName = "SPATIAL"
 
-//FilterSpatialMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
+// FilterSpatialMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
 func FilterSpatialMatcher(m match.Matcher) bool {
 	return m.ID == spatialMatcherName
 }
@@ -35,7 +35,7 @@ func spatialMatchHelper(password string, graph adjacency.Graph) (matches []match
 		for {
 			prevChar := password[j-1]
 			found := false
-			foundDirection := -1
+			var foundDirection int
 			curDirection := -1
 			//My graphs seem to be wrong. . . and where the hell is qwerty
 			adjacents := graph.Graph[string(prevChar)]
@@ -45,7 +45,7 @@ func spatialMatchHelper(password string, graph adjacency.Graph) (matches []match
 				for _, adj := range adjacents {
 					curDirection++
 
-					if strings.Index(adj, string(curChar)) != -1 {
+					if strings.Contains(adj, string(curChar)) {
 						found = true
 						foundDirection = curDirection
 

@@ -2,11 +2,12 @@ package scoring
 
 import (
 	"fmt"
-	"github.com/nbutton23/zxcvbn-go/entropy"
-	"github.com/nbutton23/zxcvbn-go/match"
-	"github.com/nbutton23/zxcvbn-go/utils/math"
 	"math"
 	"sort"
+
+	"github.com/ccojocar/zxcvbn-go/entropy"
+	"github.com/ccojocar/zxcvbn-go/match"
+	"github.com/ccojocar/zxcvbn-go/utils/math"
 )
 
 const (
@@ -33,8 +34,8 @@ type MinEntropyMatch struct {
 /*
 MinimumEntropyMatchSequence returns the minimum entropy
 
-    Takes a list of overlapping matches, returns the non-overlapping sublist with
-    minimum entropy. O(nm) dp alg for length-n password with m candidate matches.
+	Takes a list of overlapping matches, returns the non-overlapping sublist with
+	minimum entropy. O(nm) dp alg for length-n password with m candidate matches.
 */
 func MinimumEntropyMatchSequence(password string, matches []match.Match) MinEntropyMatch {
 	bruteforceCardinality := float64(entropy.CalcBruteForceCardinality(password))

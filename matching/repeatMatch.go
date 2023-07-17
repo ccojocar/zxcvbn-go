@@ -3,13 +3,13 @@ package matching
 import (
 	"strings"
 
-	"github.com/nbutton23/zxcvbn-go/entropy"
-	"github.com/nbutton23/zxcvbn-go/match"
+	"github.com/ccojocar/zxcvbn-go/entropy"
+	"github.com/ccojocar/zxcvbn-go/match"
 )
 
 const repeatMatcherName = "REPEAT"
 
-//FilterRepeatMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
+// FilterRepeatMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
 func FilterRepeatMatcher(m match.Matcher) bool {
 	return m.ID == repeatMatcherName
 }
@@ -29,7 +29,7 @@ func repeatMatch(password string) []match.Match {
 			continue
 		}
 
-		if strings.ToLower(current) == strings.ToLower(prev) {
+		if strings.EqualFold(current, prev) {
 			currentStreak++
 
 		} else if currentStreak > 2 {

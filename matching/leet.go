@@ -3,14 +3,14 @@ package matching
 import (
 	"strings"
 
-	"github.com/nbutton23/zxcvbn-go/entropy"
-	"github.com/nbutton23/zxcvbn-go/match"
+	"github.com/ccojocar/zxcvbn-go/entropy"
+	"github.com/ccojocar/zxcvbn-go/match"
 )
 
 // L33TMatcherName id
 const L33TMatcherName = "l33t"
 
-//FilterL33tMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
+// FilterL33tMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
 func FilterL33tMatcher(m match.Matcher) bool {
 	return m.ID == L33TMatcherName
 }

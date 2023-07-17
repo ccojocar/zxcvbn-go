@@ -57,7 +57,6 @@ func TestPasswordStrength(t *testing.T) {
 var formatString = "%s : error should be less than %.2f Acctual error: %.4f Expected entropy %.4f Actual entropy %.4f \n"
 
 func runTest(t *testing.T, password string, pythonEntropy float64) {
-
 	goEntropy := GoPasswordStrength(password, nil)
 	perror := math.Abs(goEntropy-pythonEntropy) / pythonEntropy
 
@@ -70,4 +69,13 @@ func runTest(t *testing.T, password string, pythonEntropy float64) {
 
 func GoPasswordStrength(password string, userInputs []string) float64 {
 	return PasswordStrength(password, userInputs).Entropy
+}
+
+// Fuzz is a fuzz test for zxcvbn-go's FuzzPasswordStrength function.
+func FuzzPasswordStrength(f *testing.F) {
+	f.Add([]byte("password"))
+	f.Fuzz(func(t *testing.T, data []byte) {
+		password := string(data)
+		_ = PasswordStrength(password, nil)
+	})
 }

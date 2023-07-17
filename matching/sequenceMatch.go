@@ -3,13 +3,13 @@ package matching
 import (
 	"strings"
 
-	"github.com/nbutton23/zxcvbn-go/entropy"
-	"github.com/nbutton23/zxcvbn-go/match"
+	"github.com/ccojocar/zxcvbn-go/entropy"
+	"github.com/ccojocar/zxcvbn-go/match"
 )
 
 const sequenceMatcherName = "SEQ"
 
-//FilterSequenceMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
+// FilterSequenceMatcher can be pass to zxcvbn-go.PasswordStrength to skip that matcher
 func FilterSequenceMatcher(m match.Matcher) bool {
 	return m.ID == sequenceMatcherName
 }

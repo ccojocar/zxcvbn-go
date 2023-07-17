@@ -1,9 +1,9 @@
 package entropy
 
 import (
-	"github.com/nbutton23/zxcvbn-go/adjacency"
-	"github.com/nbutton23/zxcvbn-go/match"
-	"github.com/nbutton23/zxcvbn-go/utils/math"
+	"github.com/ccojocar/zxcvbn-go/adjacency"
+	"github.com/ccojocar/zxcvbn-go/match"
+	"github.com/ccojocar/zxcvbn-go/utils/math"
 	"math"
 	"regexp"
 	"unicode"
@@ -134,7 +134,7 @@ func RepeatEntropy(match match.Match) float64 {
 }
 
 // CalcBruteForceCardinality calculates the brute force cardinality
-//TODO: Validate against python
+// TODO: Validate against python
 func CalcBruteForceCardinality(password string) float64 {
 	lower, upper, digits, symbols := float64(0), float64(0), float64(0), float64(0)
 
