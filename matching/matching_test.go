@@ -66,22 +66,23 @@ func TestSequenceMatch(t *testing.T) {
 	assert.Len(t, matches, 3, "Length should be 3")
 
 	for _, match := range matches {
-		if match.DictionaryName == "lower" {
+		switch match.DictionaryName {
+		case "lower":
 			assert.Equal(t, 0, match.I)
 			assert.Equal(t, 3, match.J)
 			assert.Equal(t, "abcd", match.Token)
 			assert.NotZero(t, match.Entropy, "Entropy should be set")
-		} else if match.DictionaryName == "upper" {
+		case "upper":
 			assert.Equal(t, 10, match.I)
 			assert.Equal(t, 14, match.J)
 			assert.Equal(t, "LMNOP", match.Token)
 			assert.NotZero(t, match.Entropy, "Entropy should be set")
-		} else if match.DictionaryName == "digits" {
+		case "digits":
 			assert.Equal(t, 21, match.I)
 			assert.Equal(t, 24, match.J)
 			assert.Equal(t, "1234", match.Token)
 			assert.NotZero(t, match.Entropy, "Entropy should be set")
-		} else {
+		default:
 			assert.True(t, false, "Unknown dictionary")
 		}
 	}
