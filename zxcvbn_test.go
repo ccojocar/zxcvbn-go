@@ -73,7 +73,7 @@ func GoPasswordStrength(password string, userInputs []string) float64 {
 // Fuzz is a fuzz test for zxcvbn-go's FuzzPasswordStrength function.
 func FuzzPasswordStrength(f *testing.F) {
 	f.Add([]byte("password"))
-	f.Fuzz(func(t *testing.T, data []byte) {
+	f.Fuzz(func(_ *testing.T, data []byte) {
 		password := string(data)
 		_ = PasswordStrength(password, nil)
 	})
