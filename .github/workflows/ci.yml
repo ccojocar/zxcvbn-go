@@ -27,7 +27,7 @@ jobs:
       - name: Checks basic sanity
         run: make vet
       - name: Check lint warnings
-        uses: golangci/golangci-lint-action@v7
+        uses: golangci/golangci-lint-action@v8
       - name: Check static security
         uses: securego/gosec@master
         with:
